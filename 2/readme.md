@@ -59,6 +59,7 @@ isolation=*# SELECT * FROM test;
 12. видите ли вы новую запись и если да то почему?
 
 **Вижу, потому что завершил транзакцию.**
+
 13. завершите транзакцию во второй сессии
 ```commandline
 isolation=*# COMMIT;
@@ -75,20 +76,6 @@ isolation=*# INSERT INTO test(amount) VALUES (4000);
 INSERT 0 1
 ```
 16. сделать запрос на выбор всех записей во второй сессии
-
-В первом терминале
-```commandline
-isolation=*# SELECT * FROM test;
- i | amount 
----+--------
- 1 |   1000
- 2 |   2000
- 4 |   3000
- 5 |   4000
-(4 rows)
-```
-
-Во втором терминале
 ```commandline
 isolation=*# SELECT * FROM test;
  i | amount 
@@ -100,7 +87,8 @@ isolation=*# SELECT * FROM test;
 ```
 17. видите ли вы новую запись и если да то почему?
 
-**см. предыдущий пункт**
+**Не вижу новую запись**
+
 18. завершить транзакцию в первом окне
 ```commandline
 isolation=*# COMMIT;
